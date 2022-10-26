@@ -21,7 +21,6 @@ function layout:SetFrameStyle(frame, db)
 	frame.texture:SetSize(102, 32)
 	frame.texture:Show()
 	frame.texture:SetPoint("TOPLEFT", 0, -2)
-	frame.backgroundFrame:Hide()
 
 	if frame.auraFrame then
 		local auraFrame = frame.auraFrame
