@@ -21,179 +21,181 @@ module.optionsTable = {
 	},
 }
 
-local SPEC_BUFFS = {
+-- FIXME: some of the spellIds are incorrect, should use spellNames instead
+local SPEC_AURAS = {
 	-- WARRIOR
-	[56638] = "Arms Warrior", -- Taste for Blood
-	[64976] = "Arms Warrior", -- Juggernaut
-	[57522] = "Arms Warrior", -- Enrage
-	[52437] = "Arms Warrior", -- Sudden Death
-	[46857] = "Arms Warrior", -- Trauma
-	[56112] = "Furry Warrior", -- Furious Attacks
-	[29801] = "Furry Warrior", -- Rampage
-	[46916] = "Furry Warrior", -- Slam!
-	[50227] = "Protection Warrior", -- Sword and Board
-	[50720] = "Protection Warrior", -- Vigilance
-	[74347] = "Protection Warrior", -- Silenced - Gag Order
+	["Taste for Blood"] = "Arms Warrior", -- Taste for Blood
+	["Juggernaut"] = "Arms Warrior",
+	["Enrage"] = "Arms Warrior", -- Enrage
+	["Sudden Death"] = "Arms Warrior", -- Sudden Death
+	["Trauma"] = "Arms Warrior", -- Trauma
+	["Furious Attack"] = "Furry Warrior", -- Furious Attacks
+	["Rampage"] = "Furry Warrior", -- Rampage
+	["Slam!"] = "Furry Warrior", -- Slam!
+	["Sword and Board"] = "Protection Warrior", -- Sword and Board
+	["Vigilance"] = "Protection Warrior", -- Vigilance
+	["Silenced - Gag Order"] = "Protection Warrior", -- Silenced - Gag Order
 	-- PALADIN
-	[20375] = "Retribution Paladin", -- Seal of Command
-	[59578] = "Retribution Paladin", -- The Art of War
-	[31836] = "Holy Paladin", -- Light's Grace
-	[53563] = "Holy Paladin", -- Beacon of Light
-	[54149] = "Holy Paladin", -- Infusion of Light
-	[63529] = "Protection Paladin", -- Silenced - Shield of the Templar
+	["Seal of Command"] = "Retribution Paladin", -- Seal of Command
+	["The Art of War"] = "Retribution Paladin", -- The Art of War
+	["Light's Grace"] = "Holy Paladin", -- Light's Grace
+	["Beacon of Light"] = "Holy Paladin", -- Beacon of Light
+	["Infusion of Light"] = "Holy Paladin", -- Infusion of Light
+	["Silenced - Shield of the Templar"] = "Protection Paladin", -- Silenced - Shield of the Templar
 	-- ROGUE
-	[36554] = "Subtlety Rogue", -- Shadowstep
+	["Shadowstep"] = "Subtlety Rogue", -- Shadowstep
 	[44373] = "Subtlety Rogue", -- Shadowstep Speed
 	[36563] = "Subtlety Rogue", -- Shadowstep DMG
-	[51713] = "Subtlety Rogue", -- Shadow Dance
-	[31665] = "Subtlety Rogue", -- Master of Subtlety
-	[14278] = "Subtlety Rogue", -- Ghostly Strike
-	[51690] = "Combat Rogue", -- Killing Spree
-	[13877] = "Combat Rogue", -- Blade Flurry
-	[13750] = "Combat Rogue", -- Adrenaline Rush
-	[14177] = "Assassination Rogue", -- Cold Blood
+	["Shadow Dance"] = "Subtlety Rogue", -- Shadow Dance
+	["Master of Subtlety"] = "Subtlety Rogue", -- Master of Subtlety
+	["Ghostly Strike"] = "Subtlety Rogue",
+	["Killing Spree"] = "Combat Rogue",
+	["Blade Flurry"] = "Combat Rogue",
+	["Adrenaline Rush"] = "Combat Rogue",
+	["Cold Blood"] = "Assassination Rogue",
+	["Overkill"] = "Assassination Rogue",
 	-- PRIEST
-	[47788] = "Holy Priest", -- Guardian Spirit
-	[52800] = "Discipline Priest", -- Borrowed Time
-	[63944] = "Discipline Priest", -- Renewed Hope
-	[15473] = "Shadow Priest", -- Shadowform
-	[15286] = "Shadow Priest", -- Vampiric Embrace
+	["Guardian Spirit"] = "Holy Priest", -- Guardian Spirit
+	["Borrowed Time"] = "Discipline Priest", -- Borrowed Time
+	["Renewed Hope"] = "Discipline Priest", -- Renewed Hope
+	["Shadowform"] = "Shadow Priest", -- Shadowform
+	["Vampiric Embrace"] = "Shadow Priest", -- Vampiric Embrace
 	-- DEATHKNIGHT
-	[49222] = "Unholy DK", -- Bone Shield
-	[49016] = "Blood DK", -- Hysteria
-	[53138] = "Blood DK", -- Abomination's Might
-	[55610] = "Frost DK", -- Imp. Icy Talons
+	["Bone Shield"] = "Unholy DK", -- Bone Shield
+	["Hysteria"] = "Blood DK", -- Hysteria
+	["Abomination's Might"] = "Blood DK", -- Abomination's Might
+	["Improved Icy Talons"] = "Frost DK", -- Imp. Icy Talons
 	-- MAGE
-	[43039] = "Frost Mage", -- Ice Barrier
-	[74396] = "Frost Mage", -- Fingers of Frost
-	[57761] = "Frost Mage", -- Fireball!
-	[11129] = "Fire Mage", -- Combustion
-	[64346] = "Fire Mage", -- Fiery Payback
-	[48108] = "Fire Mage", -- Hot Streak
-	[54741] = "Fire Mage", -- Firestarter
-	[55360] = "Fire Mage", -- Living Bomb
-	[31583] = "Arcane Mage", -- Arcane Empowerment
-	[44413] = "Arcane Mage", -- Incanter's Absorption
+	["Ice Barrier"] = "Frost Mage", -- Ice Barrier
+	["Fingers of Frost"] = "Frost Mage", -- Fingers of Frost
+	["Fireball!"] = "Frost Mage", -- Fireball!
+	["Combustion"] = "Fire Mage", -- Combustion
+	["Fiery Payback"] = "Fire Mage", -- Fiery Payback
+	["Hot Streak"] = "Fire Mage", -- Hot Streak
+	["Firestarter"] = "Fire Mage", -- Firestarter
+	["Living Bomb"] = "Fire Mage", -- Living Bomb
+	["Arcane Empowerment"] = "Arcane Mage", -- Arcane Empowerment
+	["Incanter's Absorption"] = "Arcane Mage", -- Incanter's Absorption
 	-- WARLOCK
-	[30302] = "Destruction Warlock", -- Nether Protection
-	[63244] = "Destruction Warlock", -- Pyroclasm
-	[54277] = "Destruction Warlock", -- Backdraft
-	[47283] = "Destruction Warlock", -- Empowered Imp
-	[34936] = "Destruction Warlock", -- Backlash
-	[47193] = "Demonology Warlock", -- Demonic Empowerment
-	[64371] = "Affliction Warlock", -- Eradication
+	["Nether Protection"] = "Destruction Warlock", -- Nether Protection
+	["Pyroclasm"] = "Destruction Warlock", -- Pyroclasm
+	["Backdraft"] = "Destruction Warlock", -- Backdraft
+	["Empowered Imp"] = "Destruction Warlock", -- Empowered Imp
+	["Backlash"] = "Destruction Warlock", -- Backlash
+	["Demonic Empowerment"] = "Demonology Warlock", -- Demonic Empowerment
+	["Eradication"] = "Affliction Warlock", -- Eradication
 	-- SHAMAN
-	[57663] = "Elemental Shaman", -- Totem of Wrath
-	[65264] = "Elemental Shaman", -- Lava Flows
-	[51470] = "Elemental Shaman", -- Elemental Oath
-	[52179] = "Elemental Shaman", -- Astral Shift
-	[49284] = "Restoration Shaman", -- Earth Shield
-	[53390] = "Restoration Shaman", -- Tidal Waves
-	[30809] = "Enhancement Shaman", -- Unleashed Rage
-	[53817] = "Enhancement Shaman", -- Maelstrom Weapon
+	["Totem of Wrath"] = "Elemental Shaman", -- Totem of Wrath
+	["Lava Flows"] = "Elemental Shaman", -- Lava Flows
+	["Elemental Oath"] = "Elemental Shaman",
+	["Astral Shift"] = "Elemental Shaman", -- Astral Shift
+	["Earth Shield"] = "Restoration Shaman", -- Earth Shield
+	["Tidal Waves"] = "Restoration Shaman", -- Tidal Waves
+	["Unleashed Rage"] = "Enhancement Shaman", -- Unleashed Rage
+	["Maelstrom Weapon"] = "Enhancement Shaman", -- Maelstrom Weapon
 	[63685] = "Enhancement Shaman", -- Freeze (Frozen Power)
 	-- HUNTER
-	[20895] = "Beast Mastery Hunter", -- Spirit Bond
-	[34471] = "Beast Mastery Hunter", -- The Beast Within
-	[75447] = "Beast Mastery Hunter", -- Ferocious Inspiration
-	[19506] = "Marksmanship Hunter", -- Trueshot Aura NOTE: Don't think it works
-	[31519] = "Marksmanship Hunter", -- Trueshot Aura
-	[64420] = "Survival Hunter", -- Sniper Training
+	["Spirit Bond"] = "Beast Mastery Hunter", -- Spirit Bond
+	["The Beast Within"] = "Beast Mastery Hunter", -- The Beast Within
+	["Ferocious Inspiration"] = "Beast Mastery Hunter", -- Ferocious Inspiration
+	["Trueshot Aura"] = "Marksmanship Hunter", -- Trueshot Aura
+	["Sniper Training"] = "Survival Hunter", -- Sniper Training
 	-- DRUID
-	[24932] = "Feral Druid", -- Leader of the Pack
-	[16975] = "Feral Druid", -- Predatory Strikes
-	[50334] = "Feral Druid", -- Berserk
-	[24907] = "Balance Druid", -- Moonkin Aura
-	[24858] = "Balance Druid", -- Moonkin Form
-	[48504] = "Restoration Druid", -- Living Seed
-	[45283] = "Restoration Druid", -- Natural Perfection
-	[53251] = "Restoration Druid", -- Wild Growth
+	["Leader of the Pack"] = "Feral Druid", -- Leader of the Pack
+	["Predatory Strikes"] = "Feral Druid", -- Predatory Strikes
+	["Berserk"] = "Feral Druid", -- Berserk
+	["Moonkin Aura"] = "Balance Druid", -- Moonkin Aura
+	["Moonkin Form"] = "Balance Druid", -- Moonkin Form
+	["Living Seed"] = "Restoration Druid", -- Living Seed
+	["Natural Perfection"] = "Restoration Druid", -- Natural Perfection
+	["Wild Growth"] = "Restoration Druid", -- Wild Growth
 	[16188] = "Restoration Druid", -- Nature's Swiftness
-	[33891] = "Restoration Druid", -- Tree of Life
+	["Tree of Life"] = "Restoration Druid", -- Tree of Life
 }
 
 local SPEC_SPELLS = {
 	-- WARRIOR
-	[47486] = "Arms Warrior", -- Mortal Strike
-	[46924] = "Arms Warrior", -- Bladestorm
-	[23881] = "Furry Warrior", -- Bloodthirst
-	[12809] = "Protection Warrior", -- Concussion Blow
-	[47498] = "Protection Warrior", -- Devastate
-	[46968] = "Protection Warrior", -- Shockwave
-	[50720] = "Protection Warrior", -- Vigilance
+	["Mortal Strike"] = "Arms Warrior", -- Mortal Strike
+	["Bladestorm"] = "Arms Warrior", -- Bladestorm
+	["Bloodthirst"] = "Furry Warrior", -- Bloodthirst
+	["Concussion Blow"] = "Protection Warrior", -- Concussion Blow
+	["Devastate"] = "Protection Warrior", -- Devastate
+	["Shockwave"] = "Protection Warrior", -- Shockwave
+	["Vigilance"] = "Protection Warrior", -- Vigilance
 	-- PALADIN
-	[48827] = "Protection Paladin", -- Avenger's Shield
-	[48825] = "Holy Paladin", -- Holy Shock
-	[53563] = "Holy Paladin", -- Beacon of Light
-	[35395] = "Retribution Paladin", -- Crusader Strike
-	[66006] = "Retribution Paladin", -- Divine Storm
-	[20066] = "Retribution Paladin", -- Repentance
+	["Avenger's Shield"] = "Protection Paladin", -- Avenger's Shield
+	["Holy Shock"] = "Holy Paladin", -- Holy Shock
+	["Beacon of Light"] = "Holy Paladin", -- Beacon of Light
+	["Crusader Strike"] = "Retribution Paladin", -- Crusader Strike
+	["Divine Storm"] = "Retribution Paladin", -- Divine Storm
+	["Repentance"] = "Retribution Paladin", -- Repentance
 	-- ROGUE
-	[48666] = "Assassination Rogue", -- Mutilate
-	[14177] = "Assassination Rogue", -- Cold Blood
-	[51690] = "Combat Rogue", -- Killing Spree
-	[13877] = "Combat Rogue", -- Blade Flurry
-	[13750] = "Combat Rogue", -- Adrenaline Rush
-	[36554] = "Subtlety Rogue", -- Shadowstep
-	[48660] = "Subtlety Rogue", -- Hemorrhage
-	[51713] = "Subtlety Rogue", -- Shadow Dance
+	["Mutilate"] = "Assassination Rogue", -- Mutilate
+	["Cold Blood"] = "Assassination Rogue", -- Cold Blood
+	["Killing Spree"] = "Combat Rogue", -- Killing Spree
+	["Blade Flurry"] = "Combat Rogue", -- Blade Flurry
+	["Adrenaline Rush"] = "Combat Rogue", -- Adrenaline Rush
+	["Shadowstep"] = "Subtlety Rogue", -- Shadowstep
+	["Hemorrhage"] = "Subtlety Rogue", -- Hemorrhage
+	["Shadow Dance"] = "Subtlety Rogue", -- Shadow Dance
 	-- PRIEST
-	[52985] = "Discipline Priest", -- Penance
-	[10060] = "Discipline Priest", -- Power Infusion
-	[33206] = "Discipline Priest", -- Pain Suppression
-	[34861] = "Holy Priest", -- Circle of Healing
-	[15487] = "Shadow Priest", -- Silence
-	[48160] = "Shadow Priest", -- Vampiric Touch
+	["Penance"] = "Discipline Priest", -- Penance
+	["Power Infusion"] = "Discipline Priest", -- Power Infusion
+	["Pain Suppression"] = "Discipline Priest", -- Pain Suppression
+	["Circle of Healing"] = "Holy Priest", -- Circle of Healing
+	["Silence"] = "Shadow Priest", -- Silence
+	["Vampiric Touch"] = "Shadow Priest", -- Vampiric Touch
 	-- DEATHKNIGHT
-	[55262] = "Blood DK", -- Heart Strike
-	[49203] = "Frost DK", -- Hungering Cold
-	[55268] = "Frost DK", -- Frost Strike
-	[51411] = "Frost DK", -- Howling Blast
-	[55271] = "Unholy DK", -- Scourge Strike
+	["Heart Strike"] = "Blood DK", -- Heart Strike
+	["Hungering Cold"] = "Frost DK", -- Hungering Cold
+	["Frost Strike"] = "Frost DK", -- Frost Strike
+	["Howling Blast"] = "Frost DK", -- Howling Blast
+	["Scourge Strike"] = "Unholy DK", -- Scourge Strike
 	-- MAGE
-	[44781] = "Arcane Mage", -- Arcane Barrage
-	[55360] = "Fire Mage", -- Living Bomb
-	[42950] = "Fire Mage", -- Dragon's Breath
-	[42945] = "Fire Mage", -- Blast Wave
-	[44572] = "Frost Mage", -- Deep Freeze
+	["Arcane Barrage"] = "Arcane Mage", -- Arcane Barrage
+	["Living Bomb"] = "Fire Mage", -- Living Bomb
+	["Dragon's Breath"] = "Fire Mage", -- Dragon's Breath
+	["Blast Wave"] = "Fire Mage", -- Blast Wave
+	["Deep Freeze"] = "Frost Mage", -- Deep Freeze
 	-- WARLOCK
-	[59164] = "Affliction Warlock", -- Haunt
-	[47843] = "Affliction Warlock", -- Unstable Affliction
-	[59672] = "Demonology Warlock", -- Metamorphosis
-	[47193] = "Demonology Warlock", -- Demonic Empowerment
-	[47996] = "Demonology Warlock", -- Intercept Felguard
-	[59172] = "Destruction Warlock", -- Chaos Bolt
-	[47847] = "Destruction Warlock", -- ShadowFurry Warrior
+	["Haunt"] = "Affliction Warlock", -- Haunt
+	["Unstable Affliction"] = "Affliction Warlock", -- Unstable Affliction
+	["Metamorphosis"] = "Demonology Warlock", -- Metamorphosis
+	["Demonic Empowerment"] = "Demonology Warlock", -- Demonic Empowerment
+	["Intercept Felguard"] = "Demonology Warlock", -- Intercept Felguard
+	["Chaos Bolt"] = "Destruction Warlock", -- Chaos Bolt
+	["Shadowfurry"] = "Destruction Warlock",
 	-- SHAMAN
-	[59159] = "Elemental Shaman", -- Thunderstorm
-	[16166] = "Elemental Shaman", -- Elemental Mastery
-	[51533] = "Enhancement Shaman", -- Feral Spirit
-	[30823] = "Enhancement Shaman", -- Shamanistic Rage
-	[17364] = "Enhancement Shaman", -- Stormstrike
-	[61301] = "Restoration Shaman", -- Riptide
-	[51886] = "Restoration Shaman", -- Cleanse Spirit
+	["Thunderstorm"] = "Elemental Shaman", -- Thunderstorm
+	["Elemental Mastery"] = "Elemental Shaman", -- Elemental Mastery
+	["Feral Spirit"] = "Enhancement Shaman", -- Feral Spirit
+	["Shamanistic Rage"] = "Enhancement Shaman", -- Shamanistic Rage
+	["Stormstrike"] = "Enhancement Shaman", -- Stormstrike
+	["Riptide"] = "Restoration Shaman", -- Riptide
+	["Cleanse Spirit"] = "Restoration Shaman", -- Cleanse Spirit
 	-- HUNTER
-	[19577] = "Beast Mastery Hunter", -- Intimidation
-	[34490] = "Marksmanship Hunter", -- Silencing Shot
-	[53209] = "Marksmanship Hunter", -- Chimera Shot
-	[60053] = "Survival Hunter", -- Explosive Shot
-	[49012] = "Survival Hunter", -- Wyvern Sting
+	["Intimidation"] = "Beast Mastery Hunter", -- Intimidation
+	["Silencing Shot"] = "Marksmanship Hunter", -- Silencing Shot
+	["Chimera Shot"] = "Marksmanship Hunter", -- Chimera Shot
+	["Explosive Shot"] = "Survival Hunter", -- Explosive Shot
+	["Wyvern Sting"] = "Survival Hunter", -- Wyvern Sting
 	-- DRUID
-	[53201] = "Balance Druid", -- Starfall
-	[61384] = "Balance Druid", -- Typhoon
-	[24858] = "Balance Druid", -- Moonkin Form
-	[48566] = "Feral Druid", -- Mangle (Cat)
-	[48564] = "Feral Druid", -- Mangle (Bear)
-	[50334] = "Feral Druid", -- Berserk
-	[18562] = "Restoration Druid", -- Swiftmend
+	["Starfall"] = "Balance Druid", -- Starfall
+	["Typhoon"] = "Balance Druid", -- Typhoon
+	["Moonkin Form"] = "Balance Druid", -- Moonkin Form
+	["Mangle (Cat)"] = "Feral Druid", -- Mangle (Cat)
+	["Mangle (Bear)"] = "Feral Druid", -- Mangle (Bear)
+	["Berserk"] = "Feral Druid", -- Berserk
+	["Swiftmend"] = "Restoration Druid", -- Swiftmend
 	[17116] = "Restoration Druid", -- Nature's Swiftness
-	[33891] = "Restoration Druid", -- Tree of Life
-	[53251] = "Restoration Druid", -- Wild Growth
+	["Tree of Life"] = "Restoration Druid", -- Tree of Life
+	["Wild Growth"] = "Restoration Druid", -- Wild Growth
 }
 
 -- TODO: enum these nuts
 local SPEC_TEXTURES = {
 	-- TODO: Get better icons... look at wowhead guids.
+	-- TODO: / is fine for path
 	["Arms Warrior"] = "Interface\\Icons\\Ability_warrior_bladestorm",
 	["Furry Warrior"] = "Interface\\Icons\\Ability_warrior_innerrage",
 	["Protection Warrior"] = "Interface\\Icons\\Inv_shield_06",
@@ -235,23 +237,72 @@ local SPEC_TEXTURES = {
 	["Restoration Druid"] = "Interface\\Icons\\Spell_nature_healingtouch",
 }
 
--- FIXME: if someone has aura before game start it is not picked up
+-----------------------------------
+-- MAKE SURE IT WORKS IN BGs TOO --
+-----------------------------------
+-- IMPR: if I detect Leader of the Pack, then I could make mystery frame for feral even in stealth, and assign spec
+-- would be best to have mystery spec for everything and every time
+
+local function revealSpec(self, spec)
+	-- self == arenaFrame.SP
+	self.spec = spec
+	self.Icon:SetTexture(SPEC_TEXTURES[self.spec])
+	self:Show()
+end
+
 function SPECDETECT_UNIT_SPELLCAST_SUCCEEDED(self, ...)
-	local _, event, _, sourceGUID, sourceName, sourceFlags, _, guid, destName, destFlags, _, spellId, spellName, _, auraType = CombatLogGetCurrentEventInfo()
+	local _, subevent, _, sourceGUID, sourceName, sourceFlags, _, guid, destName, destFlags, _, spellId, spellName, _, auraType = CombatLogGetCurrentEventInfo()
 
 	if UnitGUID(self.unit) ~= sourceGUID then return end
-	if event ~= "SPELL_CAST_SUCCESS" then return end
-	-- if we aleady have spec don't check anymore
 	if self.spec ~= nil then return end
 
-	local arenaFrame = self:GetParent()
-	local spec = arenaFrame.SP
+	if subevent == "SPELL_AURA_APPLIED" or subevent == "SPELL_AURA_REMOVED" then
+		local maybeSpec = SPEC_AURAS[spellId] or SPEC_AURAS[spellName]
+		if maybeSpec then
+			print("Spec detected, event: ", subevent, ", spell: ", spellName, ", unit: ", self.unit)
+			revealSpec(self, maybeSpec)
+		end
+	elseif subevent == "SPELL_CAST_START" or subevent == "SPELL_CAST_SUCCESS" then
+		local maybeSpec = SPEC_SPELLS[spellId] or SPEC_SPELLS[spellName]
+		if maybeSpec then
+			print("Spec detected, event: ", subevent, ", spell: ", spellName, ", unit: ", self.unit)
+			revealSpec(self, maybeSpec)
+		end
+	end
+end
 
-	local maybeTexture = SPEC_SPELLS[spellId] or SPEC_BUFFS[spellId]
+function FIRST_DETECT_UNIT(self, ...)
+	local _, updateReason = ...
 
-	if maybeTexture then
-		spec.Icon:SetTexture(SPEC_TEXTURES[maybeTexture])
-		spec:Show()
+	-- Proceed if:
+	-- we just spot the person.
+	if updateReason ~= "seen" then return end
+	-- we haven't found spec defining aura on him.
+	if self.wasSpecRevealedOnFirstDetect then return end
+
+	local unit = self.unit
+	-- spec is not set set already.
+	if self.spec ~= nil then return end
+
+	-- scan all buffs
+	for n = 1, 30 do
+		local spellName, _, _, _, _, _, source, _, _, spellId = UnitAura(unit, n, "HELPFUL")
+
+		local maybeSpec = SPEC_AURAS[spellId] or SPEC_AURAS[spellName]
+
+		-- FIXME: still doesn't detect Elemental Oath I think
+		if maybeSpec and source then
+			local unitPet = string.gsub(unit, "%d$", "pet%1")
+			-- print("matching spell, ", spellName, " on unit: ", self.unit)
+			if UnitIsUnit(unit, source) or UnitIsUnit(unitPet, source) then
+				print("FIRST_DETECT_UNIT Spec detected aura: ", spellName, ", unit: ", self.unit)
+				-- TODO: maybe unregister event?
+				-- self:UnregisterEvent()
+				revealSpec(self, maybeSpec)
+				self.wasSpecRevealedOnFirstDetect = true
+				return
+			end
+		end
 	end
 end
 
@@ -263,16 +314,21 @@ function module:OnEvent(event, ...)
 
 		if (arenaFrame["SP"] == nil) then
 			SP = CreateFrame("Frame", nil, arenaFrame, "sArenaIconTemplate")
-			SP:Hide() -- by default we hide it
 
 			SP.unit = arenaFrame.unit
+
 			SP:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+			SP:RegisterEvent("ARENA_OPPONENT_UPDATE")
 			SP:SetScript("OnEvent", function(self, event, ...) return self[event](self, ...) end)
+
+			-- TODO: so what's the order they trigger in?
+			-- first I wanna check for CLUE ARENA_OPPONENT_UPDATE if needed
 			SP.COMBAT_LOG_EVENT_UNFILTERED = SPECDETECT_UNIT_SPELLCAST_SUCCEEDED
+			SP.ARENA_OPPONENT_UPDATE = FIRST_DETECT_UNIT
 
 			SP.mask = SP:CreateMaskTexture()
 			SP.mask:SetAllPoints(SP.Icon)
-			SP.mask:SetTexture("Interface/CHARACTERFRAME/TempPortraitAlphaMask", "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE") -- TODO: what are those params?
+			SP.mask:SetTexture("Interface/CHARACTERFRAME/TempPortraitAlphaMask") -- TODO: what are those params?
 			SP.Icon:AddMaskTexture(SP.mask)
 
 			specBorder = CreateFrame("Frame", nil, SP)
@@ -284,8 +340,7 @@ function module:OnEvent(event, ...)
 
 			specBorder.mask = specBorder:CreateMaskTexture()
 			specBorder.mask:SetAllPoints(specBorder.tex)
-			specBorder.mask:SetTexture("Interface/CHARACTERFRAME/TempPortraitAlphaMask", "CLAMPTOBLACKADDITIVE",
-				"CLAMPTOBLACKADDITIVE")
+			specBorder.mask:SetTexture("Interface/CHARACTERFRAME/TempPortraitAlphaMask")
 			specBorder.tex:AddMaskTexture(specBorder.mask)
 
 			SP.border = specBorder
@@ -295,11 +350,16 @@ function module:OnEvent(event, ...)
 			specBorder = SP.border
 		end
 
+		SP.spec = nil
+		SP.wasSpecRevealedOnFirstDetect = false -- nice name lmao
+
 		if event == "ADDON_LOADED" then
 			SP:SetMovable(true)
 			addon:SetupDrag(self, true, SP)
 
-			SP:SetFrameLevel(100)
+			SP:SetFrameLevel(100) -- Not sure about this, I just wanted it to have higher strata then trinket cd
+		elseif event == "PLAYER_ENTERING_WORLD" then
+			SP:Hide()
 		elseif event == "TEST_MODE" then
 			if addon.testMode then
 				SP:EnableMouse(true)
